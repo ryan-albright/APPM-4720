@@ -158,12 +158,12 @@ def linear_solver (treasury_df, treasury_cashflows, input_cf_file):
 buyDate = ql.Date(8, 2, 2024)
 
 # import treasury data
-treasury_df = clean_data ('Projects\Cashflow Project\TreasuryPrices7Feb24.csv', buyDate)
+treasury_df = clean_data ('Projects\Cashflow Project\Inputs\TreasuryPrices7Feb24.csv', buyDate)
 
 
 # Finding all the cf dates for each treasury
 treasury_cfs = cashflow_dates(treasury_df, buyDate)
 
 # Using linear solver to find dataframe of correct treasuries
-pd.DataFrame(linear_solver (treasury_df, treasury_cfs, 'Projects\Cashflow Project\DatesAndCashFlows2.csv')).to_csv('Projects\Cashflow Project\Results.csv', index = False)
+pd.DataFrame(linear_solver (treasury_df, treasury_cfs, 'Projects\Cashflow Project\Inputs\DatesAndCashFlows2.csv')).to_csv('Projects\Cashflow Project\Outputs\Results.csv', index = False)
 
